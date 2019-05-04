@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="widget_order_tree">
+            <field name="name">widget.order.tree</field>
+            <field name="model">widget.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form View -->
+        <record model="ir.ui.view" id="widget_order_form">
+            <field name="name">widget.order.form</field>
+            <field name="model">widget.order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook>
+                            <page string="1. CSS">
+                                <group>
+                                    <field name="field_1" class="o_text_blue"/>
+                                </group>
+                                <br/><br/>
+                                <div style="white-space: pre-line;">
+                                    <p>
+                                        <b>Mengubah warna dari kolom</b>
+                                        1. Hanya perlu css
+                                        2. Link path file .css pada <b>bebas.xml</b>.
+                                        3. Link path xml pada  <b>__manifest__.py</b> 
+                                    </p>
+                                </div>
+                            </page>
+                            <page string="2. Read Mode">
+                                <group>
+                                    <field name="field_2" widget="field_read_mode"/>
+                                </group>
+                                <br/><br/>
+                                <div style="white-space: pre-line;">
+                                    <p>
+                                        <b>Mengubah tampilan ketika belum di-edit</b>
+                                        1. Perlu javascript
+                                        2. Override fungsi <b>_renderReadonly</b>.
+                                    </p>
+                                </div>
+                            </page>
+                            <page string="3. Edit Mode">
+                                <group>
+                                    <field name="field_3" widget="field_edit_mode"/>
+                                </group>
+                                <br/><br/>
+                                <div style="white-space: pre-line;">
+                                    <p>
+                                        <b>Mengubah tampilan ketika di-edit</b>
+                                        1. Perlu javascript
+                                        2. Override fungsi <b>_renderEdit</b>.
+                                    </p>
+                                </div>
+                            </page>
+                            <page string="4. Event Input">
+                                <group>
+                                    <field name="field_4" 
+                                        placeholder="masukkan nomor Telepon !"
+                                        widget="field_input_event"/>
+                                </group>
+                                <br/><br/>
+                                <div style="white-space: pre-line;">
+                                    <p>
+                                        <b>Mengubah format Nomor Telepon</b>
+                                        1. Perlu javascript untuk binding event yang terjadi pada Input box
+                                        2. Override fungsi <b>_onInput</b> untuk tampilan saja.
+                                        3. Override fungsi <b>_onChange</b> agar bisa disimpan ketika tekan tombol Save.
+                                    </p>
+                                </div>
+                            </page>
+                            <page string="5. Template">
+                                <group>
+                                    <field name="field_5" widget="field_template"/>
+                                </group>
+                                <br/><br/>
+                                <div style="white-space: pre-line;">
+                                    <p>
+                                        <b>Mengubah Tampilan dengan Qweb</b>
+                                        1. Perlu xml
+                                        2. Link path xml pada bagian qweb di <b>__manifest__.py</b> 
+                                        3. Override fungsi <b>_onChange</b> agar bisa disimpan ketika tekan tombol Save.
+                                        4. Langkah no 3 diperlukan karena input box sudah di wrap dalam <b>div</b>
+                                    </p>
+                                </div>
+                            </page>
+                            <page string="6. Trigger Up">
+                            <group>
+                                <group>
+                                    <field name="name" 
+                                        placeholder="Type Here !" 
+                                        widget="field_trigger_up"/>
+                                </group>
+                                <group>
+                                    <field name="notes" />
+                                </group>
+                                <div style="white-space: pre-line;">
+                                        <p>
+                                            <b>Modifikasi field lain dengan Javascript</b>
+                                            1. Perlu binding Event
+                                            2. diperlukan fungsi <b>this.trigger_up</b> untuk 'melempar' data ke field lain 
+                                        </p>
+                                    </div>
+                            </group>
+                            <notebook>
+                                <page string="Info">
+                                    <field name="line_ids">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="quantity"/>
+                                            <field name="price"/>
+                                            <field name="price_depends"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="widget_order_action">
+            <field name="name">Widget Order</field>
+            <field name="res_model">widget.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem 
+            id="main_widget_order"
+            name="Widget Order"
+        />
+
+        <menuitem 
+            id="menu_widget_order"
+            name="Widget Order"
+            parent="main_widget_order"
+        />
+
+        <menuitem 
+            id="submenu_widget_order"
+            name="Widget Order"
+            parent="menu_widget_order"
+
+            action="widget_order_action"
+        />
+
+    </data>
+</odoo>

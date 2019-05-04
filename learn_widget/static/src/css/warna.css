@@ -1,0 +1,28 @@
+.o_text_blue{
+    color: blue;
+}
+
+.o_text_bold{
+    font-weight: bold;
+}
+
+.o_text_italic{
+    font-style: italic;
+}
+
+.widget_container{
+    background: #efefef;
+    
+}
+
+
+/* Odoo Header Gradient Color */
+.o_main_navbar{
+    background: rgb(124,123,173);
+    background: linear-gradient(90deg, rgba(124,123,173,1) 35%, rgba(170,25,185,1) 100%);
+}
+/* Odoo Tree View Horizontal Scrollable */
+.table-responsive{
+    overflow-x: hidden !important; 
+    
+}

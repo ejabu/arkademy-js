@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template name="bebas" id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- Manifest untuk CSS -->
+            <link rel="stylesheet" href="/learn_widget/static/src/css/warna.css"/>
+
+            <!-- Manifest untuk Javascript -->
+            <script type="text/javascript" src="/learn_widget/static/src/js/custom_mode_read.js"></script>
+
+            <script type="text/javascript" src="/learn_widget/static/src/js/custom_mode_edit.js"></script>
+
+            <script type="text/javascript" src="/learn_widget/static/src/js/custom_template.js"></script>
+
+            <script type="text/javascript" src="/learn_widget/static/src/js/custom_input_event.js"></script>
+            
+            <script type="text/javascript" src="/learn_widget/static/src/js/custom_trigger_up.js"></script>
+        
+        </xpath>
+    </template>
+    
+</odoo>

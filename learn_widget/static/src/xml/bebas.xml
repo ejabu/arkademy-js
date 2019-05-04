@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="FieldCustom">
+        <t t-if="widget.mode == 'readonly'">
+            <div class="widget_container">
+                <button class="btn btn-primary oe_highlight">
+                    Click Me
+                </button>
+                <span class="o_text_bold">
+                    <t t-esc="widget.value"/>
+                </span>
+            </div>
+        </t>
+        <t t-if="widget.mode !== 'readonly'">
+            <div class="widget_container">
+                <span class="fa fa-pencil"/>
+                <input class="o_text_italic" t-att-value="widget.value"/>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="FieldTriggerUp">
+        <t t-if="widget.mode == 'readonly'">
+            <div class="customhar">
+                <button class="btn btn-primary oe_highlight">
+                    Click Me
+                </button>
+                <span class="o_text_bold">
+                    <t t-esc="widget.value"/>
+                </span>
+            </div>
+        </t>
+        <t t-if="widget.mode !== 'readonly'">
+            <div class="">
+                <span class="fa fa-pencil"/>
+                <input class="o_text_italic" t-att-value="widget.value"/>
+            </div>
+        </t>
+    </t>
+    
+</templates>
